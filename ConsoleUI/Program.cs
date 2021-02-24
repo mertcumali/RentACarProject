@@ -11,7 +11,7 @@ namespace ConsoleUI
         static void Main(string[] args)
         {
 
-
+            
             CarTest();
             Console.WriteLine();
             ColorTest();
@@ -33,6 +33,7 @@ namespace ConsoleUI
             CustomerTest();
             Console.WriteLine();
             RentalTest();
+       
 
 
 
@@ -57,8 +58,13 @@ namespace ConsoleUI
                 Console.WriteLine(result.Message);
             }
         }
-
-        private static void BrandTest()
+        private static void CarAddTest()
+        {
+            CarManager carManager = new CarManager(new EfCarDal());
+            var result = carManager.Add(new Car { BrandId = 3, ColorId = 2, ModelYear = "2021", DailyPrice = 400, Description="Luxury" });
+            Console.WriteLine(result.Message);
+        }
+            private static void BrandTest()
         {
             BrandManager brandManager = new BrandManager(new EfBrandDal());
 

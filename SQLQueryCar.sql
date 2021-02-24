@@ -1,15 +1,15 @@
 ﻿CREATE TABLE Brands(
-	BrandId int PRIMARY KEY NOT NULL IDENTITY,
+	BrandId int PRIMARY KEY NOT NULL IDENTITY(1,1),
 	BrandName TEXT
 )
 
 CREATE TABLE Colors(
-	ColorId int PRIMARY KEY NOT NULL IDENTITY,
+	ColorId int PRIMARY KEY NOT NULL IDENTITY(1,1),
 	ColorName TEXT
 )
 
 CREATE TABLE Cars(
-	CarId int PRIMARY KEY NOT NULL IDENTITY,
+	CarId int PRIMARY KEY NOT NULL IDENTITY(1,1),
 	BrandId int, 
 	ColorId int,
 	ModelYear TEXT,
@@ -41,7 +41,7 @@ VALUES
 ('3','3','2017','320','Comfortable');
 
 CREATE TABLE Users(
-	Id int PRIMARY KEY NOT NULL IDENTITY,
+	Id int PRIMARY KEY NOT NULL IDENTITY(1,1),
 	FirstName varchar(50) NOT NULL, 
 	LastName varchar(50) NOT NULL,
 	Email varchar(50) NOT NULL,
@@ -55,7 +55,7 @@ VALUES
 
 
 CREATE TABLE Customers(
-	CustomerId int PRIMARY KEY NOT NULL IDENTITY,
+	CustomerId int PRIMARY KEY NOT NULL IDENTITY(1,1),
 	CompanyName varchar(50) NOT NULL,
 	UserId int NOT NULL,
 	FOREIGN KEY (UserId) REFERENCES Users(Id),
@@ -70,7 +70,7 @@ VALUES
 
 
 CREATE TABLE Rentals(
-	Id int PRIMARY KEY NOT NULL IDENTITY,
+	Id int PRIMARY KEY NOT NULL IDENTITY(1,1),
 	CarId int NOT NULL, 
 	CustomerId int NOT NULL,
 	RentDate DateTime NOT NULL,
