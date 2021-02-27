@@ -8,6 +8,8 @@ using System.Linq;
 using System.Collections.Generic;
 using System.Text;
 using Entities.DTOs;
+using Core.Aspects.Validation;
+using Business.ValidationRules.FluentValidation;
 
 namespace Business.Concrete
 {
@@ -34,7 +36,8 @@ namespace Business.Concrete
 
         public IResult Update(Rental rental)
         {
-            if (rental.ReturnDate == null)
+            var wantedCar = _rentalDal.Get(p => p.CarId == rental.CarId);
+            if (wantedCar.ReturnDate == null)
             {
                 return new ErrorResult(Messages.RentalInvalid);
             }
