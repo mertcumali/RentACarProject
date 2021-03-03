@@ -90,8 +90,13 @@ VALUES
 ('1','3','2021.01.20');
 
 
-
-
+CREATE TABLE CarImages(
+	CarImageId int PRIMARY KEY NOT NULL IDENTITY(1,1),
+	CarId int NOT NULL, 
+	ImagePath nvarchar(max) NOT NULL,
+	Date DateTime NOT NULL,
+	FOREIGN KEY (CarId) REFERENCES Cars(CarId)
+)
 
 
 

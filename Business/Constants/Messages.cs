@@ -43,7 +43,11 @@ namespace Business.Constants
         public static string RentalsListed = "The Rental are listed.";
         public static string RentalInvalid = "The Rental is invalid. Because The Car did not return the rental company.";
 
-
+        public static string CarImageAdded = "The Car Image is added.";
+        public static string CarImageUpdated = "The Car Image is updated.";
+        public static string CarImageDeleted= "The Car Image is deleted.";
+        public static string CarImageLimitExceded = "A Car must have a maximum of 5 Car Images.";
+        public static string CarImageNotExists = "The Car has not any Image.";
 
 
 
