@@ -29,10 +29,12 @@ namespace Business.Concrete
         public IResult Add(IFormFile image, CarImage img)
         {
             IResult result = BusinessRules.Run(CheckIfCarImagesLimitExceded(img.CarId));
+
             if (result != null)
             {
                 return result;
             }
+
             img.ImagePath = FileHelper.Add(image);
             img.Date = DateTime.Now;
             _carImageDal.Add(img);
