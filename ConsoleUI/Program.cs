@@ -21,14 +21,9 @@ namespace ConsoleUI
             CarDetailsTest();
             Console.WriteLine();
 
-
-            UserAddTest();
             CustomerAddTest();
             RentalAddTest();
 
-
-            Console.WriteLine();
-            UserTest();
             Console.WriteLine();
             CustomerTest();
             Console.WriteLine();
@@ -98,25 +93,6 @@ namespace ConsoleUI
             else
             {
                 Console.WriteLine(result.Message);
-            }
-        }
-
-        private static void UserAddTest()
-        {
-            UserManager userManager = new UserManager(new EfUserDal());
-            var result = userManager.Add(new User { FirstName = "Ahmet", LastName = "Türk", Email = "ahmet@gmail.com", Password = "4444" });
-            Console.WriteLine(result.Message);
-            var result2 = userManager.Add(new User { FirstName = "Hazel", LastName = "Soylu", Email = "hzl@gmail.com", Password = "5555" });
-            Console.WriteLine(result2.Message);
-        }
-
-        private static void UserTest()
-        {
-            UserManager userManager = new UserManager(new EfUserDal());
-            foreach (var user in userManager.GetAll().Data)
-            {
-                Console.WriteLine("UserId: {0} FirstName: {1} LastName: {2} Email: {3} Password: {4}"
-                    , user.Id, user.FirstName, user.LastName, user.Email, user.Password);
             }
         }
         private static void CustomerAddTest()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace Business.Constants
@@ -48,14 +49,6 @@ namespace Business.Constants
         public static string CarImageDeleted= "The Car Image is deleted.";
         public static string CarImageLimitExceded = "A Car must have a maximum of 5 Car Images.";
         public static string CarImageNotExists = "The Car has not any Image.";
-
-
-
-
-
-
-
-
-
+        public static string AuthorizationDenied = "Yetkiniz yok.";
     }
 }
