@@ -26,35 +26,34 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(CarImageValidator))]
-        public IResult Add(IFormFile image, CarImage img)
+        public IResult Add(IFormFile image, CarImage carImage)
         {
-            IResult result = BusinessRules.Run(CheckIfCarImagesLimitExceded(img.CarId));
+            IResult result = BusinessRules.Run(CheckIfCarImagesLimitExceded(carImage.CarId));
 
             if (result != null)
             {
                 return result;
             }
 
-            img.ImagePath = FileHelper.Add(image);
-            img.Date = DateTime.Now;
-            _carImageDal.Add(img);
+            carImage.ImagePath = FileHelper.Add(image);
+            carImage.Date = DateTime.Now;
+            _carImageDal.Add(carImage);
             return new SuccessResult(Messages.CarImageAdded);
 
         }
 
         [ValidationAspect(typeof(CarImageValidator))]
-        public IResult Update(IFormFile image, CarImage img)
+        public IResult Update(IFormFile image, CarImage carImage)
         {
-            IResult result = BusinessRules.Run(CheckIfCarImagesLimitExceded(img.CarId));
+            IResult result = BusinessRules.Run(CheckIfCarImagesLimitExceded(carImage.CarId));
             if (result != null)
             {
                 return result;
             }
-            var carImg = _carImageDal.Get(c => c.CarImageId == img.CarImageId);
-            carImg.Date = DateTime.Now;
-            carImg.ImagePath = FileHelper.Add(image);
-            FileHelper.Delete(img.ImagePath);
-            _carImageDal.Update(carImg);
+
+            carImage.ImagePath = FileHelper.Update(_carImageDal.Get(p => p.CarImageId == carImage.CarImageId).ImagePath, image);
+            carImage.Date = DateTime.Now;
+            _carImageDal.Update(carImage);
 
             return new SuccessResult(Messages.CarImageUpdated);
         }

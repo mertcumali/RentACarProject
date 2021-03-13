@@ -10,6 +10,8 @@ using System.Text;
 using Entities.DTOs;
 using Core.Aspects.Validation;
 using Business.ValidationRules.FluentValidation;
+using Business.BusinessAspects.Autofac;
+using Core.Aspects.Caching;
 
 namespace Business.Concrete
 {
@@ -21,6 +23,7 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
+        [SecuredOperation("rental.add,admin")]
         public IResult Add(Rental rental)
         {
             var wantedCar = _rentalDal.Get(p => p.CarId == rental.CarId);
@@ -34,6 +37,7 @@ namespace Business.Concrete
 
         }
 
+        [SecuredOperation("rental.update,admin")]
         public IResult Update(Rental rental)
         {
             var wantedCar = _rentalDal.Get(p => p.CarId == rental.CarId);
@@ -45,22 +49,25 @@ namespace Business.Concrete
 
             return new SuccessResult(Messages.RentalUpdated);
         }
+
+        [SecuredOperation("rental.delete,admin")]
         public IResult Delete(Rental rental)
         {
             _rentalDal.Delete(rental);
             return new SuccessResult(Messages.RentalDeleted);
         }
-
+        [CacheAspect]
         public IDataResult<List<Rental>> GetAll()
         {
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.RentalsListed);
         }
-
+        [CacheAspect]
         public IDataResult<Rental> GetById(int id)
         {
             return new SuccessDataResult<Rental>(_rentalDal.Get(p => p.Id == id));
         }
 
+        [CacheAspect]
         public IDataResult<List<RentalDetailDto>> GetRentalDetails()
         {
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentalDetails());

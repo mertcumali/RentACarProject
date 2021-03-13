@@ -27,12 +27,6 @@ namespace Business.Constants
         public static string BrandNameInvalid = "The Brand name is invalid.";
         public static string BrandsListed = "The Brands are listed.";
 
-
-        public static string UserAdded = "The User is added.";
-        public static string UserUpdated = "The User is updated.";
-        public static string UserDeleted = "The User is deleted.";
-        public static string UsersListed = "The Users are listed.";
-
         public static string CustomerAdded = "The Customer is added.";
         public static string CustomerUpdated = "The Customer is updated.";
         public static string CustomerDeleted = "The Customer is deleted.";
@@ -49,6 +43,23 @@ namespace Business.Constants
         public static string CarImageDeleted= "The Car Image is deleted.";
         public static string CarImageLimitExceded = "A Car must have a maximum of 5 Car Images.";
         public static string CarImageNotExists = "The Car has not any Image.";
-        public static string AuthorizationDenied = "Yetkiniz yok.";
+
+
+        public static string AuthorizationDenied = "There is no authority.";
+        public static string UserRegistered = "The user is registered.";
+        public static string UserNotFound = "The user is not found.";
+        public static string UserAlreadyExists = "The user is already exists";
+
+        public static string PasswordError = "Incorrect password";
+        public static string SuccessfullLogin = "Successful Login";
+        public static string TokenCreated = "Access Token is created.";
+
+
+
+
+
+
+
+
     }
 }
