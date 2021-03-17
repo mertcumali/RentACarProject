@@ -23,10 +23,12 @@ namespace DataAccess.Concrete.EntityFramework
                              on ca.ColorId equals c.ColorId
                              select new CarDetailDto
                              {
-                                 CarName = ca.Description,
+                                 CarId = ca.CarId,
                                  BrandName = b.BrandName,
                                  ColorName = c.ColorName,
-                                 DailyPrice = ca.DailyPrice
+                                 DailyPrice = ca.DailyPrice,
+                                 Description=ca.Description,
+                                 ModelYear=ca.ModelYear
 
                              };
                 return result.ToList();
