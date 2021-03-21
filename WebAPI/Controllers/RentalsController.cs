@@ -45,7 +45,7 @@ namespace WebAPI.Controllers
         [HttpGet("getrentaldetails")]
         public IActionResult GetRentalDetails()
         {
-            Thread.Sleep(3000);
+            Thread.Sleep(1000);
 
             var result = _rentalService.GetRentalDetails();
             if (result.Success)
