@@ -87,7 +87,7 @@ namespace ConsoleUI
                 foreach (var car in carManager.GetCarDetails().Data)
                 {
                     Console.WriteLine("CarName: {0} BrandName: {1} ColorName: {2} DailyPrice: {3}"
-                        , car.CarName, car.BrandName, car.ColorName, car.DailyPrice);
+                        , car.Description, car.BrandName, car.ColorName, car.DailyPrice);
                 }
             }
             else

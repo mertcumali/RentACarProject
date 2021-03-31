@@ -18,7 +18,8 @@ namespace Business.Concrete
     public class CarImageManager : ICarImageService
     {
         ICarImageDal _carImageDal;
-        private readonly string DefaultImage = Environment.CurrentDirectory + @"\wwwroot\Images\rentlogo.jpg";
+        //private readonly string DefaultImage = Environment.CurrentDirectory + @"\wwwroot\Images\rentlogo.jpg";
+
 
         public CarImageManager(ICarImageDal carImageDal)
         {
@@ -100,7 +101,8 @@ namespace Business.Concrete
                 return new List<CarImage> { 
                     new CarImage 
                     {
-                        CarId = carId, ImagePath = DefaultImage, Date = DateTime.Now 
+                        //CarId = carId, ImagePath = DefaultImage, Date = DateTime.Now 
+                        CarId = carId, ImagePath = "rentlogo.jpg", Date = DateTime.Now
                     } 
                 };
             }

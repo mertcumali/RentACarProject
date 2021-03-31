@@ -54,7 +54,10 @@ namespace Business.Constants
         public static string SuccessfullLogin = "Successful Login";
         public static string TokenCreated = "Access Token is created.";
 
-
+        public static string CreditCardAdded = "The CreditCard is added.";
+        public static string CreditCardUpdated = "The CreditCard is updated.";
+        public static string CreditCardDeleted = "The CreditCard is deleted.";
+        public static string CreditCardsListed = "The CreditCards are listed.";
 
 
 

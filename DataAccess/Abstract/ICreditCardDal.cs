@@ -2,13 +2,11 @@
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Linq.Expressions;
 using System.Text;
 
 namespace DataAccess.Abstract
 {
-    public interface ICarDal:IEntityRepository<Car>
+    public interface ICreditCardDal:IEntityRepository<CreditCard>
     {
-        public List<CarDetailDto> GetCarDetails();
     }
 }

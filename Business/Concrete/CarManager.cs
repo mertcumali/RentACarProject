@@ -13,6 +13,7 @@ using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -67,14 +68,18 @@ namespace Business.Concrete
         {
             return new SuccessDataResult<Car>( _carDal.Get(p => p.CarId == id));
         }
-        public IDataResult<List<Car>> GetCarsByBrandId(int id)
+        public IDataResult<List<CarDetailDto>> GetCarsByBrandId(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.BrandId == id));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails().Where(p => p.BrandId == id).ToList());
         }
 
-        public IDataResult<List<Car>> GetCarsByColorId(int id)
+        public IDataResult<List<CarDetailDto>> GetCarsByColorId(int id)
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(p => p.ColorId == id));
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails().Where(p => p.ColorId == id).ToList());
+        }
+        public IDataResult<List<CarDetailDto>> GetCarsByBrandIdColorId(int brandId,int colorId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails().Where(p => p.BrandId == brandId && p.ColorId == colorId).ToList());
         }
         [CacheAspect]
         public IDataResult<List<CarDetailDto>> GetCarDetails()
