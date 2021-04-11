@@ -41,9 +41,9 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
         [HttpGet("getbycustomerid")]
-        public IActionResult GetByCustomerId(int id)
+        public IActionResult GetByCustomerId(int customerId)
         {
-            var result = _creditCardService.GetByCustomerId(id);
+            var result = _creditCardService.GetByCustomerId(customerId);
             if (result.Success)
             {
                 return Ok(result);

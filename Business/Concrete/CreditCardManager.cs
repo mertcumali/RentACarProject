@@ -42,7 +42,7 @@ namespace Business.Concrete
 
         public IDataResult<CreditCard> GetByCreditCardNumber(int creditCardNumber)
         {
-            return new SuccessDataResult<CreditCard>(_creditCardDal.Get(p => p.CreditCardNumber == creditCardNumber));
+            return new SuccessDataResult<CreditCard>(_creditCardDal.Get(p => p.CreditCardNumber == creditCardNumber)); 
         }
 
         public IDataResult<CreditCard> GetByCustomerId(int customerId)

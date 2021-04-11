@@ -29,6 +29,9 @@ namespace DataAccess.Concrete.EntityFramework
 
                              select new RentalDetailDto
                              {
+                                RentalId=r.Id,
+                                CarId=ca.CarId,
+                                CustomerId=r.CustomerId,
                                 FirstName = u.FirstName,
                                 LastName = u.LastName,
                                 CompanyName = cu.CompanyName,
@@ -37,7 +40,8 @@ namespace DataAccess.Concrete.EntityFramework
                                 BrandName = b.BrandName,
                                 ColorName = co.ColorName,
                                 RentDate =r.RentDate,
-                                ReturnDate=r.ReturnDate
+                                ReturnDate=r.ReturnDate,
+                                FindexPoint=ca.FindexPoint
 
                              };
                 return result.ToList();

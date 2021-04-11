@@ -21,7 +21,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(ColorValidator))]
-        [SecuredOperation("color.add,admin")]
+        //[SecuredOperation("color.add,admin")]
         public IResult Add(Color color)
         {
             _colorDal.Add(color);
@@ -31,7 +31,7 @@ namespace Business.Concrete
         }
 
         [ValidationAspect(typeof(ColorValidator))]
-        [SecuredOperation("color.update,admin")]
+        //[SecuredOperation("color.update,admin")]
         public IResult Update(Color color)
         {
             _colorDal.Update(color);
@@ -51,9 +51,9 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Color>>(_colorDal.GetAll(), Messages.ColorsListed);
         }
 
-        public IDataResult<Color> GetById(int id)
+        public IDataResult<List<Color>> GetById(int id)
         {
-            return new SuccessDataResult<Color>(_colorDal.Get(p => p.ColorId == id));
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(p => p.ColorId == id));
         }
 
     }

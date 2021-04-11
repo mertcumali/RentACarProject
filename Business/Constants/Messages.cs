@@ -59,6 +59,8 @@ namespace Business.Constants
         public static string CreditCardDeleted = "The CreditCard is deleted.";
         public static string CreditCardsListed = "The CreditCards are listed.";
 
+        public static string CarRented = "The Car is already rented.";
+
 
 
 
