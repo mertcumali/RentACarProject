@@ -1,6 +1,7 @@
 # RentACarProject 
 A web application for Rent A Car System.
-It developed using SOLID Principles, Web API, Json Web Tokens, Autofac, AOP, Entity Framework
+It developed using SOLID Principles, Web API, Json Web Tokens, Autofac, AOP, Entity Framework, Fluent Validation, Authorization, Cross Cutting Concerns, Dependency Injections,
+Extensions.
 
 ## Development Environment : Visual Studio 2019 
 
