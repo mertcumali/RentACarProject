@@ -4,9 +4,9 @@ It developed using SOLID Principles, Web API, Json Web Tokens, Autofac, AOP, Ent
 
 Integrated Development Environment : Visual Studio 2019 
 
-<a href="https://visualstudio.microsoft.com/tr/downloads/">
+  <a href="https://visualstudio.microsoft.com/tr/downloads/">
     <img src="images/VisualStudioLogo.png" alt="Logo" width="80" height="80">
-</a>
+  </a>
 
 ## Built With
 
